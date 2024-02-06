@@ -63,6 +63,10 @@ if [ ! -d "${MBPT_BASE_PATH}/MobilePassThrough" ]; then
     if ! command -v git &> /dev/null; then
         echo "> Installing git..."
         sudo dnf install -y git
+        if [ $? -ne 0 ]; then
+            echo "> Error: Failed to install Git. Exiting script."
+            exit 1
+        fi
     fi
 
     echo "> Downloading the MobilePassThrough project..."
