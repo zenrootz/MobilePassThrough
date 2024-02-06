@@ -384,6 +384,18 @@ $proxyConfig = if ($IgnoreProxy -or -not $ProxyUrl) {
     if ($ProxyCredential) {
         $config['ProxyCredential'] = $ProxyCredential
     } elseif ($env:chocolateyProxyUser -and $env:chocolateyProxyPassword) {
+    } # end of proxy credential setup
+
+    if ([string]::IsNullOrWhiteSpace($ProxyUrl)) {
+        $ProxyUrl = $null
+    }
+
+    if ([string]::IsNullOrWhiteSpace($ProxyCredential)) {
+        $ProxyCredential = $null
+    }
+
+    # Begin of proxy setup
+    if ($ProxyCredential) {
         $securePass = ConvertTo-SecureString $env:chocolateyProxyPassword -AsPlainText -Force
         $config['ProxyCredential'] = [System.Management.Automation.PSCredential]::new($env:chocolateyProxyUser, $securePass)
     }
