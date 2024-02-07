@@ -43,7 +43,15 @@ else
 fi
 
 if [ ! -d "${THIRDPARTY_DIR}/livecd-tools" ]; then
+function prepareBetaRelease() {
+    echo "> Preparing Beta Release..."
+    echo "> Checking and including Nvidia drivers..."
+    # Check for Nvidia drivers and include them if necessary
+    # This is a placeholder for the implementation
+}
+
     echo "> Downloading and installing livecd-tools..."
+    prepareBetaRelease
     mkdir -p "${THIRDPARTY_DIR}"
     cd "${THIRDPARTY_DIR}"
     git clone https://github.com/livecd-tools/livecd-tools.git #--branch=livecd-tools-28.3 --single-branch livecd-tools
