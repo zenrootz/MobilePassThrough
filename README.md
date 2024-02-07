@@ -42,8 +42,8 @@ And there is also a lot of advanced stuff that I managed to fully automate, like
 
 ## Currently supported distributions
 
- - Fedora 34
- - Ubuntu 21.04 (Currently not working. Some dependencies won't be installed automatically.)
+ - Fedora 34, 38, 39
+ - Ubuntu 21.04
 
 ## Limitations
 
