@@ -2,6 +2,11 @@
 while [[ "$PROJECT_DIR" != */MobilePassThrough ]]; do PROJECT_DIR="$(readlink -f "$(dirname "${PROJECT_DIR:-0}")")"; done
 source "$PROJECT_DIR/scripts/utils/common/libs/helpers"
 
+# Detect Fedora version
+if cat /etc/os-release | grep -E "^ID=fedora$" >/dev/null; then
+    FEDORA_VERSION=$(grep VERSION_ID /etc/os-release | cut -d '"' -f2)
+fi
+
 #####################################################################################################
 # This script checks the device it's executed on for GPU passthrough compatibility and prints a detailed report to the terminal.
 #####################################################################################################
@@ -21,7 +26,16 @@ else
     OPTIRUN_PREFIX=""
 fi
 
-alias updatePkgInfo="'${PACKAGE_MANAGER}' update"
+# Adjust package management commands based on Fedora version
+if [[ "$FEDORA_VERSION" == "38" || "$FEDORA_VERSION" == "39" ]]; then
+    source "$PROJECT_DIR/scripts/utils/distro-specific/Fedora/pre-package-info-update"
+    source "$PROJECT_DIR/scripts/utils/distro-specific/Fedora/pre-package-install"
+    alias updatePkgInfo="sudo dnf makecache --refresh"
+    alias getExecPkg="sudo dnf install"
+else
+    alias updatePkgInfo="'${PACKAGE_MANAGER}' update"
+    alias getExecPkg="'${PACKAGE_MANAGER}' install --executables"
+fi
 alias getExecPkg="'${PACKAGE_MANAGER}' install --executables"
 alias getMissingExecutables="${COMMON_UTILS_TOOLS_DIR}/get-missing-executables"
 alias lsiommu="sudo '${OPTIRUN_PREFIX}${COMMON_UTILS_TOOLS_DIR}/lsiommu'"
