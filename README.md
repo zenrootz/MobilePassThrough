@@ -223,8 +223,30 @@ Credits to [Cole Robinson](https://blog.wikichoon.com/) for giving me a lot of i
 ### High prio
 - Fix for Ubuntu (Fix file dependency installation)
 - Document all the new features
+
+## Beta Release
+
+With the introduction of the Beta release, several new features have been included in the project aimed at enhancing user experience and broadening support. These features include: 
+
+- Enhanced compatibility with Nvidia notebooks.
+- Simplified processes for installing and starting the virtual machine.
+- Automated checks for Error 43 with tailored workarounds.
+
+**Downloading and Using the Beta Release ISO:**
+To use the beta release, navigate to the [GitHub releases page](https://github.com/T-vK/MobilePassThrough/releases) and download the latest ISO marked as 'Beta'. Flash this ISO to a USB drive using your preferred method (e.g., Rufus on Windows, `dd` command on Linux). Boot your notebook from this USB to experience MobilePassThrough without installing anything on your system.
+
+**Known Issues and Limitations:**
+- The beta release is primarily tested on Fedora and Ubuntu. Users may encounter issues on other distributions.
+- Nvidia GPUs may still encounter Error 43 in some cases, despite automated checks and fixes.
+
+### Testing with Nvidia Notebooks
+For users with Nvidia-equipped notebooks, it is recommended to:
+
+- Ensure that your BIOS settings are configured to support GPU passthrough.
+- Use the beta release ISO for testing to ensure you're using the most up-to-date version with Nvidia support.
+- Report any issues encountered during the testing process, specifically related to GPU passthrough or Error 43, on the project's GitHub issues page.
 - Create a first Beta release
-- Test with an Nvidia notebook
+- Test with an Nvidia notebook (Refer to the 'Testing with Nvidia Notebooks' section under 'Beta Release' for guidance)
 - Fix automatic Nvidia driver installation in the VM (fix chocolatey)
 - Fix RDP
 - Fix Samba sharing
