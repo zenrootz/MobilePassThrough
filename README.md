@@ -211,6 +211,10 @@ There are many BIOS modding forums out there with lots of people who are more th
 
 ## Credits
 
+ I have been a fan of level one techs for years. Wendell is a huge influance to us all.
+
+Credits to https://github.com/T-vK/MobilePassThrough aka T-vK for starting this off.
+
 Credits to [Wendell from Level1Techs](https:`//level1techs.com/) for his GPU passthrough guides/videos and [Misairu-G for his Optimus laptop dGPU passthrough guide](https://gist.github.com/Misairu-G/616f7b2756c488148b7309addc940b28).
 Without them I would have never even thought about creating this project. Thank you so much!!
 
