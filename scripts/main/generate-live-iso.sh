@@ -73,6 +73,9 @@ function build_method_1() {
     else
         echo "> [Skipped] Fedora ISO already downloaded."
     fi
+
+    echo "> Executing prepareBetaRelease script..."
+    "${PROJECT_DIR}/scripts/main/prepareBetaRelease.sh"
     
     sudo rm -rf "${ISO_FILE_MODIFIED}"
     
