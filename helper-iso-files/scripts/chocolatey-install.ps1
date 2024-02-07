@@ -384,6 +384,18 @@ $proxyConfig = if ($IgnoreProxy -or -not $ProxyUrl) {
     if ($ProxyCredential) {
         $config['ProxyCredential'] = $ProxyCredential
     } elseif ($env:chocolateyProxyUser -and $env:chocolateyProxyPassword) {
+    } # end of proxy credential setup
+
+    if ([string]::IsNullOrWhiteSpace($ProxyUrl)) {
+        $ProxyUrl = $null
+    }
+
+    if ([string]::IsNullOrWhiteSpace($ProxyCredential)) {
+        $ProxyCredential = $null
+    }
+
+    # Begin of proxy setup
+    if ($ProxyCredential) {
         $securePass = ConvertTo-SecureString $env:chocolateyProxyPassword -AsPlainText -Force
         $config['ProxyCredential'] = [System.Management.Automation.PSCredential]::new($env:chocolateyProxyUser, $securePass)
     }
@@ -405,14 +417,16 @@ try {
 }
 catch {
     $errorMessage = @(
-        'Unable to set PowerShell to use TLS 1.2. This is required for contacting Chocolatey as of 03 FEB 2020.'
-        'https://blog.chocolatey.org/2020/01/remove-support-for-old-tls-versions/.'
-        'If you see underlying connection closed or trust errors, you may need to do one or more of the following:'
-        '(1) upgrade to .NET Framework 4.5+ and PowerShell v3+,'
-        '(2) Call [System.Net.ServicePointManager]::SecurityProtocol = 3072; in PowerShell prior to attempting installation,'
-        '(3) specify internal Chocolatey package location (set $env:chocolateyDownloadUrl prior to install or host the package internally),'
-        '(4) use the Download + PowerShell method of install.'
-        'See https://docs.chocolatey.org/en-us/choco/setup for all install options.'
+        'Unable to set PowerShell to use TLS 1.2. This is required for contacting Chocolatey as of 03 FEB 2020.',
+        'https://blog.chocolatey.org/2020/01/remove-support-for-old-tls-versions/.',
+        'If you encounter a connection closed or trust error, check the following:',
+        '(1) Ensure your .NET Framework is at least version 4.5. Use [System.Environment]::Version in PowerShell to check your .NET version.',
+        '(2) Ensure your PowerShell version is 3 or higher. Use $PSVersionTable.PSVersion.Major in PowerShell to check your version.',
+        '(3) Try calling [System.Net.ServicePointManager]::SecurityProtocol = 3072; in PowerShell prior to attempting installation.',
+        '(4) Specify an internal Chocolatey package location (set $env:chocolateyDownloadUrl prior to installation or host the package internally).',
+        '(5) Consider using the Download + PowerShell method of installation.',
+        'For detailed installation instructions, visit https://docs.chocolatey.org/en-us/choco/setup.',
+        'If these steps do not resolve the issue, please consult Chocolatey support or your network administrator.'
     ) -join [Environment]::NewLine
     Write-Warning $errorMessage
 }

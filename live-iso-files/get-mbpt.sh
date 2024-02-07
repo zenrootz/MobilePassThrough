@@ -43,6 +43,10 @@ if [ ! -d "${MBPT_BASE_PATH}/MobilePassThrough" ]; then
         printf "%c" "."
         sleep 1
     done
+        if [ $? -ne 0 ]; then
+            printf "\n%s\n" "> Error: Unable to establish an Internet connection."
+            exit 1
+        fi
     printf "\n%s\n"  "> Connected!"
 
     requiredDomains="github.com mirrors.fedoraproject.org fedorapeople.org developer.nvidia.com tb.rg-adguard.net software-download.microsoft.com download.microsoft.com chocolatey.org" # www.techpowerup.com
@@ -59,6 +63,10 @@ if [ ! -d "${MBPT_BASE_PATH}/MobilePassThrough" ]; then
     if ! command -v git &> /dev/null; then
         echo "> Installing git..."
         sudo dnf install -y git
+        if [ $? -ne 0 ]; then
+            echo "> Error: Failed to install Git. Exiting script."
+            exit 1
+        fi
     fi
 
     echo "> Downloading the MobilePassThrough project..."
