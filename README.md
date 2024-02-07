@@ -218,6 +218,7 @@ Credits to [korewaChino](https://github.com/T-vK/MobilePassThrough/pull/13) for 
 
 Credits to [Cole Robinson](https://blog.wikichoon.com/) for giving me a lot of incredibly valuable hard to find information on `virt-install`!
 
+Special thanks to [T-vK](https://github.com/T-vK) for founding this project and their invaluable contributions.
 ## TODO
 
 ### High prio
