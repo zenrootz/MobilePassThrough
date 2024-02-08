@@ -214,7 +214,7 @@ There are many BIOS modding forums out there with lots of people who are more th
 Credits to [Wendell from Level1Techs](https:`//level1techs.com/) for his GPU passthrough guides/videos and [Misairu-G for his Optimus laptop dGPU passthrough guide](https://gist.github.com/Misairu-G/616f7b2756c488148b7309addc940b28).
 Without them I would have never even thought about creating this project. Thank you so much!!
 
-Credits to [korewaChino](https://github.com/T-vK/MobilePassThrough/pull/13) for adding support for Ubuntu!
+Credits to [korewaChino](https://github.com/zenrrotz/MobilePassThrough/pull/13) for adding support for Ubuntu!
 
 Credits to [Cole Robinson](https://blog.wikichoon.com/) for giving me a lot of incredibly valuable hard to find information on `virt-install`!
 
