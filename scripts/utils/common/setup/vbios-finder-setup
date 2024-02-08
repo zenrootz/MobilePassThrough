@@ -6,7 +6,7 @@ loadConfig
 cd "${THIRDPARTY_DIR}"
 
 rm -rf VBiosFinder
-git clone https://github.com/coderobe/VBiosFinder.git
+git clone https://github.com/zenrrotz/VBiosFinder.git
 git checkout c2d764975115de466fdb4963d7773b5bc8468a06
 cd VBiosFinder
 

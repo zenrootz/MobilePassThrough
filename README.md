@@ -82,7 +82,7 @@ And there is also a lot of advanced stuff that I managed to fully automate, like
 - Open a terminal and install git and MobilePassThrough by typing the following, pressing enter after each line:
     ``` Bash
     sudo dnf install git -y # Install git
-    git clone https://github.com/T-vK/MobilePassThrough.git # Clone the project
+    git clone https://github.com/zenrrotz/MobilePassThrough.git # Clone the project
     cd MobilePassThrough # Enter the project directory
     ./mbpt.sh configure # Create a custom config file interactively (optional)
     ./mbpt.sh auto # Dependency installation; kernel param config; bumblebee / nvidia driver installation; windows ISO download; reboot to load new kernel params; create a helper iso with drivers and autounattended config for Windows; create and start VM; install Windows in the VM fully unattended; install drivers and looking glass in the VM automatically; check for error 43 automatically and show a warning if it occurs
@@ -214,7 +214,7 @@ There are many BIOS modding forums out there with lots of people who are more th
 Credits to [Wendell from Level1Techs](https:`//level1techs.com/) for his GPU passthrough guides/videos and [Misairu-G for his Optimus laptop dGPU passthrough guide](https://gist.github.com/Misairu-G/616f7b2756c488148b7309addc940b28).
 Without them I would have never even thought about creating this project. Thank you so much!!
 
-Credits to [korewaChino](https://github.com/T-vK/MobilePassThrough/pull/13) for adding support for Ubuntu!
+Credits to [korewaChino](https://github.com/zenrrotz/MobilePassThrough/pull/13) for adding support for Ubuntu!
 
 Credits to [Cole Robinson](https://blog.wikichoon.com/) for giving me a lot of incredibly valuable hard to find information on `virt-install`!
 
